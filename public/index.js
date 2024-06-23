@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     async function measureDownloadSpeed() {
-        const numRequests = 100;
+        const numRequests = 50;
         const fileSizeMB = 10; 
 
         for (let i = 0; i < numRequests; i++) {
@@ -104,8 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
     async function measureUploadSpeed() {
         const uploadUrl = '/upload';
         const numRequests = 25;
-        const dataSizeMB = 1; 
-        const largeData = new Uint8Array(dataSizeMB * 1024 * 1024); 
+        const dataSizeMB = 5; 
+        const largeData = new Uint8Array(dataSizeMB * 1024 * 1024);
 
         for (let i = 0; i < numRequests; i++) {
             const startTime = Date.now();
