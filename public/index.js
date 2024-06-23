@@ -122,7 +122,7 @@ async function measureDownloadSpeed() {
         else if (speedMbps < 50) numRequests = 25;
 
         downloadSpeed.innerHTML = `Download speed: <br><b>${speed.toFixed(2)} MB/s, ${parseInt(speedMbps.toFixed(2)).toLocaleString()} Mbps</b> (${i + 1}/${numRequests})`;
-        document.querySelector("#dr-mbps").innerText = `${speedMbps.toFixed(2)} Mbps`
+        document.querySelector("#dr-mbps").innerText = `${parseInt(speedMbps.toFixed(2)).toLocaleString()} Mbps`
         document.querySelector("#dr-mbs").innerText = `${speed.toFixed(2)} MB/s`
     }
 
@@ -160,7 +160,7 @@ async function measureUploadSpeed() {
         else if (speedMbps < 50) numRequests = 15;
 
         uploadSpeed.innerHTML = `Upload speed: <br><b>${speed.toFixed(2)} MB/s, ${parseInt(speedMbps.toFixed(2)).toLocaleString()} Mbps</b> (${i + 1}/${numRequests})`;
-        document.querySelector("#ur-mbps").innerText = `${speedMbps.toFixed(2)} Mbps`
+        document.querySelector("#ur-mbps").innerText = `${parseInt(speedMbps.toFixed(2)).toLocaleString()} Mbps`
         document.querySelector("#ur-mbs").innerText = `${speed.toFixed(2)} MB/s`
     }
 
