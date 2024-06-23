@@ -104,7 +104,7 @@ const uploadChart = new Chart(uploadChartCtx, {
 
 async function measureDownloadSpeed() {
     var numRequests = 50;
-    const fileSizeMB = 10;
+    const fileSizeMB = 1;
 
     for (let i = 0; i < numRequests; i++) {
         const startTime = Date.now();
