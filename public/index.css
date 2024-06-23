@@ -72,4 +72,10 @@ body {
     #downloadChart, #uploadChart {
         scale: 0.4 !important;
     }
+
+    #downloadSpeed, #uploadSpeed {
+        line-height: 1.5em;
+        font-size: 15px;
+    }
+    
 }
