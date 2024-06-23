@@ -59,6 +59,11 @@ body {
 @media only screen and (max-width: 600px) {
     #download, #upload, #pingResult, #start {
         top: 60% !important;
+        max-width: 60%;
+    }
+
+    #download, #upload {
+        top: 70% !important;
     }
 
     #downloadChart, #uploadChart {
