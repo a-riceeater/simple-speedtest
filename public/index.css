@@ -52,7 +52,7 @@ body {
     transform-origin: center center;
 }
 
-#downloadSpeed, #uploadSpeed, #downloadResult, #uploadResult {
+#downloadSpeed, #uploadSpeed, #downloadResult, #uploadResult, #pingFinal {
     line-height: 1.5em;
 }
 
