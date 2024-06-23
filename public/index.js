@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     async function measureDownloadSpeed() {
-        const numRequests = 50;
+        const numRequests = 100;
         const fileSizeMB = 10; 
 
         for (let i = 0; i < numRequests; i++) {
