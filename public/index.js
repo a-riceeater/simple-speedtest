@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     async function measureDownloadSpeed() {
-        const numRequests = 100;
+        const numRequests = 50;
         const fileSizeMB = 10; 
 
         for (let i = 0; i < numRequests; i++) {
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const duration = (endTime - startTime) / 1000;
             const speed = fileSizeMB / duration;
             const speedMbps = speed * 8;
-            downloadSpeed.innerHTML = `Download speed: <b>${speed.toFixed(2)} MB/s, ${parseInt(speedMbps.toFixed(2)).toLocaleString()} Mbps</b> (${i + 1}/100)`;
+            downloadSpeed.innerHTML = `Download speed: <b>${speed.toFixed(2)} MB/s, ${parseInt(speedMbps.toFixed(2)).toLocaleString()} Mbps</b> (${i + 1}/50)`;
 
             downloadChart.data.labels.push(i + 1);
             downloadChart.data.datasets[0].data.push(speed);
@@ -103,8 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function measureUploadSpeed() {
         const uploadUrl = '/upload';
-        const numRequests = 50;
-        const dataSizeMB = 10; 
+        const numRequests = 25;
+        const dataSizeMB = 1; 
         const largeData = new Uint8Array(dataSizeMB * 1024 * 1024); 
 
         for (let i = 0; i < numRequests; i++) {
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const duration = (endTime - startTime) / 1000;
             const speed = dataSizeMB / duration;
             const speedMbps = speed * 8;
-            uploadSpeed.innerHTML = `Upload speed: <b>${speed.toFixed(2)} MB/s, ${parseInt(speedMbps.toFixed(2)).toLocaleString()} Mbps</b> (${i + 1}/100)`;
+            uploadSpeed.innerHTML = `Upload speed: <b>${speed.toFixed(2)} MB/s, ${parseInt(speedMbps.toFixed(2)).toLocaleString()} Mbps</b> (${i + 1}/25)`;
 
             uploadChart.data.labels.push(i + 1);
             uploadChart.data.datasets[0].data.push(speed);
