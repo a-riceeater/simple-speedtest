@@ -21,6 +21,7 @@ document.querySelector("#start").addEventListener("click", (e) => {
 document.querySelector('#test-again').addEventListener('click', (e) => {
     document.querySelector("#results").style.transform = 'translate(-50%, -50%) scale(0)'
 
+    resetCharts()
     setTimeout(() => {
         pingResult.style.transform = 'translate(-50%, -50%) scale(1)'
         setTimeout(measurePing, 1200)
@@ -196,4 +197,15 @@ async function measurePing() {
             setTimeout(measureDownloadSpeed, 1050)
         }, 1050)
     }, 2500)
+}
+
+function resetCharts() {
+    downloadChart.data.datasets.forEach((dataset) => {
+        dataset.data = [];
+    });
+    downloadChart.update();
+    uploadChart.data.datasets.forEach((dataset) => {
+        dataset.data = []; // Clearing data
+    });
+    uploadChart.update(); 
 }
