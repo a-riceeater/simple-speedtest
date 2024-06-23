@@ -43,7 +43,7 @@ body {
     transform-origin: center center;
 }
 
-#download, #upload, #pingResult {
+#download, #upload, #pingResult, #results {
     transition: all 1s;
     position: absolute;
     transform: translate(-50%, -50%) scale(0);
@@ -52,7 +52,7 @@ body {
     transform-origin: center center;
 }
 
-#downloadSpeed, #uploadSpeed {
+#downloadSpeed, #uploadSpeed, #downloadResult, #uploadResult {
     line-height: 1.5em;
 }
 
@@ -61,11 +61,11 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
-    #download, #upload, #pingResult, #start {
+    #pingResult, #start {
         top: 60% !important;
     }
 
-    #download, #upload {
+    #download, #upload, #results {
         top: 70% !important;
     }
 

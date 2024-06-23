@@ -15,7 +15,7 @@ document.querySelector("#start").addEventListener("click", (e) => {
 
         pingResult.style.transform = 'translate(-50%, -50%) scale(1)'
         setTimeout(measurePing, 1200)
-    }, 550)  
+    }, 550)
 })
 
 const downloadChart = new Chart(downloadChartCtx, {
@@ -112,6 +112,8 @@ async function measureDownloadSpeed() {
         else if (speedMbps < 50) numRequests = 25;
 
         downloadSpeed.innerHTML = `Download speed: <br><b>${speed.toFixed(2)} MB/s, ${parseInt(speedMbps.toFixed(2)).toLocaleString()} Mbps</b> (${i + 1}/${numRequests})`;
+        document.querySelector("#dr-mbps").innerText = `${speedMbps.toFixed(2)} Mbps`
+        document.querySelector("#dr-mbs").innerText = `${speed.toFixed(2)} MB/s`
     }
 
     setTimeout(() => {
@@ -148,7 +150,17 @@ async function measureUploadSpeed() {
         else if (speedMbps < 50) numRequests = 15;
 
         uploadSpeed.innerHTML = `Upload speed: <br><b>${speed.toFixed(2)} MB/s, ${parseInt(speedMbps.toFixed(2)).toLocaleString()} Mbps</b> (${i + 1}/${numRequests})`;
+        document.querySelector("#ur-mbps").innerText = `${speedMbps.toFixed(2)} Mbps`
+        document.querySelector("#ur-mbs").innerText = `${speed.toFixed(2)} MB/s`
     }
+
+    setTimeout(() => {
+        uploadContainer.style.transform = 'translate(-50%, -50%) scale(0)';
+        setTimeout(() => {
+            document.querySelector("#results").style.transform = 'translate(-50%, -50%) scale(1)';
+            setTimeout(() => {}, 1050)
+        }, 1050)
+    }, 2500)
 }
 
 async function measurePing() {
