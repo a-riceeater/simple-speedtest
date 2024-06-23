@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple-speedtest</title>
+
+    <link rel="stylesheet" href="/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="container">
+        <h1>Simple Speed Test</h1>
+        <button id="downloadTestBtn">Test Download Speed</button>
+        <p id="downloadSpeed"></p>
+        <canvas id="downloadChart" width="250px"></canvas>
+        <button id="uploadTestBtn">Test Upload Speed</button>
+        <p id="uploadSpeed"></p>
+        <canvas id="uploadChart" width="250px"></canvas>
+        <button id="pingTestBtn">Test Ping</button>
+        <p id="pingResult"></p>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+body {
+    background-color: #f0f0f0;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+}
+
+#downloadChart, #uploadChart {
+    height: 300px !important;
+    width: 800px !important;
+    scale: 0.5;
+}
