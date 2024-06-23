@@ -18,6 +18,15 @@ document.querySelector("#start").addEventListener("click", (e) => {
     }, 550)
 })
 
+document.querySelector('#test-again').addEventListener('click', (e) => {
+    document.querySelector("#results").style.transform = 'translate(-50%, -50%) scale(0)'
+
+    setTimeout(() => {
+        pingResult.style.transform = 'translate(-50%, -50%) scale(1)'
+        setTimeout(measurePing, 1200)
+    }, 550)
+})
+
 const downloadChart = new Chart(downloadChartCtx, {
     type: 'line',
     data: {
