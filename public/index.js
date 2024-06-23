@@ -111,7 +111,7 @@ async function measureDownloadSpeed() {
         if (speedMbps < 15) numRequests = 5;
         else if (speedMbps < 50) numRequests = 25;
 
-        downloadSpeed.innerHTML = `Download speed: <b>${speed.toFixed(2)} MB/s, ${parseInt(speedMbps.toFixed(2)).toLocaleString()} Mbps</b> (${i + 1}/${numRequests})`;
+        downloadSpeed.innerHTML = `Download speed: <br><b>${speed.toFixed(2)} MB/s, ${parseInt(speedMbps.toFixed(2)).toLocaleString()} Mbps</b> (${i + 1}/${numRequests})`;
     }
 
     setTimeout(() => {
@@ -147,7 +147,7 @@ async function measureUploadSpeed() {
         if (speedMbps < 15) numRequests = 5;
         else if (speedMbps < 50) numRequests = 15;
 
-        uploadSpeed.innerHTML = `Upload speed: <b>${speed.toFixed(2)} MB/s, ${parseInt(speedMbps.toFixed(2)).toLocaleString()} Mbps</b> (${i + 1}/${numRequests})`;
+        uploadSpeed.innerHTML = `Upload speed: <br><b>${speed.toFixed(2)} MB/s, ${parseInt(speedMbps.toFixed(2)).toLocaleString()} Mbps</b> (${i + 1}/${numRequests})`;
     }
 }
 

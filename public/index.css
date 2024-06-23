@@ -52,6 +52,10 @@ body {
     transform-origin: center center;
 }
 
+#downloadSpeed, #uploadSpeed {
+    line-height: 1.5em;
+}
+
 #pingResult {
     font-size: 22px;
 }
@@ -63,10 +67,6 @@ body {
 
     #download, #upload {
         top: 70% !important;
-    }
-
-    #downloadSpeed, #uploadSpeed {
-        max-width: 60%;
     }
 
     #downloadChart, #uploadChart {
