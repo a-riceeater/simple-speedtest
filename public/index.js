@@ -167,7 +167,7 @@ async function measurePing() {
     }
 
     const averagePing = totalPing / numPings;
-    pingResult.innerText = `Ping: ${averagePing.toFixed(2)} ms`;
+    pingResult.innerText = `Ping: <b>${averagePing.toFixed(2)} ms</b>`;
 
     setTimeout(() => {
         pingResult.style.transform = 'translate(-50%, -50%) scale(0)';
