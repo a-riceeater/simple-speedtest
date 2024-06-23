@@ -108,7 +108,7 @@ async function measureDownloadSpeed() {
 
     for (let i = 0; i < numRequests; i++) {
         const startTime = Date.now();
-        await fetch('/large-file');
+        await fetch('/large-file', { cache: "no-store" });
         const endTime = Date.now();
         const duration = (endTime - startTime) / 1000;
         const speed = fileSizeMB / duration;
@@ -168,7 +168,7 @@ async function measureUploadSpeed() {
         uploadContainer.style.transform = 'translate(-50%, -50%) scale(0)';
         setTimeout(() => {
             document.querySelector("#results").style.transform = 'translate(-50%, -50%) scale(1)';
-            setTimeout(() => {}, 1050)
+            setTimeout(() => { }, 1050)
         }, 1050)
     }, 2500)
 }
@@ -205,7 +205,7 @@ function resetCharts() {
     });
     downloadChart.update();
     uploadChart.data.datasets.forEach((dataset) => {
-        dataset.data = []; // Clearing data
+        dataset.data = [];
     });
-    uploadChart.update(); 
+    uploadChart.update();
 }
