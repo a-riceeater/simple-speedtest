@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function measureDownloadSpeed() {
         const numRequests = 50;
-        const fileSizeMB = 10; 
+        const fileSizeMB = 10;
 
         for (let i = 0; i < numRequests; i++) {
             const startTime = Date.now();
@@ -98,13 +98,16 @@ document.addEventListener('DOMContentLoaded', () => {
             downloadChart.data.labels.push(i + 1);
             downloadChart.data.datasets[0].data.push(speed);
             downloadChart.update();
+
+            if (speedMbps < 15) numRequests = 15;
+            else if (speedMbps < 50) numRequests = 25;
         }
     }
 
     async function measureUploadSpeed() {
         const uploadUrl = '/upload';
         const numRequests = 25;
-        const dataSizeMB = 1; 
+        const dataSizeMB = 1;
         const largeData = new Uint8Array(dataSizeMB * 1024 * 1024);
 
         for (let i = 0; i < numRequests; i++) {
@@ -123,16 +126,14 @@ document.addEventListener('DOMContentLoaded', () => {
             uploadChart.data.datasets[0].data.push(speed);
             uploadChart.update();
 
-            if (i == 0) {
-                if (speed < 15) numRequests = 5;
-                else if (speed < 50) numRequests = 15;
-            }
+            if (speedMbps < 15) numRequests = 5;
+            else if (speedMbps < 50) numRequests = 15;
         }
     }
 
     async function measurePing() {
-        const pingUrl = '/ping'; 
-        const numPings = 5; 
+        const pingUrl = '/ping';
+        const numPings = 5;
         let totalPing = 0;
 
         pingResult.innerText = `--`;
@@ -164,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     pingTestBtn.addEventListener('click', () => {
-        pingResult.textContent = ''; 
+        pingResult.textContent = '';
         measurePing();
     });
 });
