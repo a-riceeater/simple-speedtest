@@ -13,22 +13,20 @@
 <body>
     <div id="container">
         <h1>Simple Speed Test</h1>
+        <p>This speedtest will likely transfer around <b>75 MB of data</b>, but may transfer less on slower connections.</p>
         <div id="start">
-            Start
+            GO
         </div>
-        <div id="download">
-            <button id="downloadTestBtn">Test Download Speed</button>
-            <p id="downloadSpeed"></p>
+        <div id="download" style="transform: translate(-50%, -50%) scale(0);">
+            <p id="downloadSpeed">Download Speed: <b>--</b> (0/50)</p>
             <canvas id="downloadChart" width="250px"></canvas>
         </div>
         <div id="upload">
-            <button id="uploadTestBtn">Test Upload Speed</button>
-            <p id="uploadSpeed"></p>
+            <p id="uploadSpeed">Upload Speed: <b>--</b> (0/25)</p>
             <canvas id="uploadChart" width="250px"></canvas>
-            <button id="pingTestBtn">Test Ping</button>
         </div>
 
-        <p id="pingResult"></p>
+        <p id="pingResult">Ping: --</p>
     </div>
 
     <script src="index.js"></script>
