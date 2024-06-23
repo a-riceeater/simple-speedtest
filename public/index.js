@@ -156,8 +156,6 @@ async function measurePing() {
     const numPings = 5;
     let totalPing = 0;
 
-    pingResult.innerText = `--`;
-
     for (let i = 0; i < numPings; i++) {
         const startTime = Date.now();
         await fetch(pingUrl);
@@ -167,7 +165,7 @@ async function measurePing() {
     }
 
     const averagePing = totalPing / numPings;
-    pingResult.innerText = `Ping: <b>${averagePing.toFixed(2)} ms</b>`;
+    pingResult.innerHTML = `Ping: <b>${averagePing.toFixed(2)} ms</b>`;
 
     setTimeout(() => {
         pingResult.style.transform = 'translate(-50%, -50%) scale(0)';
@@ -177,22 +175,3 @@ async function measurePing() {
         }, 1050)
     }, 2500)
 }
-
-downloadTestBtn.addEventListener('click', () => {
-    downloadSpeed.textContent = '';
-    downloadChart.data.labels = [];
-    downloadChart.data.datasets[0].data = [];
-    measureDownloadSpeed();
-});
-
-uploadTestBtn.addEventListener('click', () => {
-    uploadSpeed.textContent = '';
-    uploadChart.data.labels = [];
-    uploadChart.data.datasets[0].data = [];
-    measureUploadSpeed();
-});
-
-pingTestBtn.addEventListener('click', () => {
-    pingResult.textContent = '';
-    measurePing();
-});
