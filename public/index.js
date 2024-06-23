@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function measureUploadSpeed() {
         const uploadUrl = '/upload';
         const numRequests = 25;
-        const dataSizeMB = 5; 
+        const dataSizeMB = 1; 
         const largeData = new Uint8Array(dataSizeMB * 1024 * 1024);
 
         for (let i = 0; i < numRequests; i++) {
@@ -122,6 +122,11 @@ document.addEventListener('DOMContentLoaded', () => {
             uploadChart.data.labels.push(i + 1);
             uploadChart.data.datasets[0].data.push(speed);
             uploadChart.update();
+
+            if (i == 0) {
+                if (speed < 15) numRequests = 5;
+                else if (speed < 50) numRequests = 15;
+            }
         }
     }
 
