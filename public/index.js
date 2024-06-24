@@ -141,6 +141,8 @@ async function measureUploadSpeed() {
     const dataSizeMB = 1;
     const largeData = new Uint8Array(dataSizeMB * 1024 * 1024);
 
+    var avgSpeed = 0;
+
     for (let i = 0; i < numRequests; i++) {
         const startTime = Date.now();
         await fetch(uploadUrl, {
@@ -152,6 +154,8 @@ async function measureUploadSpeed() {
         const speed = dataSizeMB / duration;
         const speedMbps = speed * 8;
 
+        avgSpeed += speed;
+
         uploadChart.data.labels.push(i + 1);
         uploadChart.data.datasets[0].data.push(speed);
         uploadChart.update();
@@ -159,9 +163,12 @@ async function measureUploadSpeed() {
         if (speedMbps < 15) numRequests = 5;
         else if (speedMbps < 50) numRequests = 15;
 
-        uploadSpeed.innerHTML = `Upload speed: <br><b>${speed.toFixed(2)} MB/s, ${parseInt(speedMbps.toFixed(2)).toLocaleString()} Mbps</b> (${i + 1}/${numRequests})`;
-        document.querySelector("#ur-mbps").innerText = `${parseInt(speedMbps.toFixed(2)).toLocaleString()} Mbps`
-        document.querySelector("#ur-mbs").innerText = `${speed.toFixed(2)} MB/s`
+        const av = avgSpeed / i;
+        const avMbps = av * 8;
+
+        uploadSpeed.innerHTML = `Upload speed: <br><b>${av.toFixed(2)} MB/s, ${parseInt(avMbps.toFixed(2)).toLocaleString()} Mbps</b> (${i + 1}/${numRequests})`;
+        document.querySelector("#ur-mbps").innerText = `${parseInt(avMbps.toFixed(2)).toLocaleString()} Mbps`
+        document.querySelector("#ur-mbs").innerText = `${av.toFixed(2)} MB/s`
     }
 
     setTimeout(() => {
