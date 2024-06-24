@@ -124,7 +124,7 @@ async function measureDownloadSpeed() {
         if (speedMbps < 15) numRequests = 5;
         else if (speedMbps < 50) numRequests = 25;
 
-        const av = avgSpeed / i + 1;
+        const av = avgSpeed / (i + 1);
         const avMbps = av * 8;
 
 
@@ -170,7 +170,7 @@ async function measureUploadSpeed() {
         if (speedMbps < 15) numRequests = 5;
         else if (speedMbps < 50) numRequests = 15;
 
-        const av = avgSpeed / i + 1;
+        const av = avgSpeed / (i + 1);
         const avMbps = av * 8;
 
         uploadSpeed.innerHTML = `Upload speed: <br><b>${av.toFixed(2)} MB/s, ${parseInt(avMbps.toFixed(2)).toLocaleString()} Mbps</b> (${i + 1}/${numRequests})`;
