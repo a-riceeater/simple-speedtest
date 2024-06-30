@@ -121,8 +121,8 @@ async function measureDownloadSpeed() {
         downloadChart.data.datasets[0].data.push(speed);
         downloadChart.update();
 
-        if (speedMbps < 15) numRequests = 5;
-        else if (speedMbps < 50) numRequests = 25;
+        if (speedMbps < 10) numRequests = 5;
+        else if (speedMbps < 15) numRequests = 25;
 
         const av = avgSpeed / (i + 1);
         const avMbps = av * 8;
